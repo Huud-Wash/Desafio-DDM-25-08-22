@@ -1,0 +1,76 @@
+import 'package:flutter/material.dart';
+
+const Color darkBlue = Color.fromARGB(255, 18, 32, 47);
+
+void main() {
+  runApp(MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      theme: ThemeData.dark().copyWith(
+        scaffoldBackgroundColor: darkBlue,
+      ),
+      debugShowCheckedModeBanner: false,
+      home: Scaffold(
+        body: Center(
+          child: MyWidget(),
+        ),
+      ),
+    );
+  }
+}
+
+class MyWidget extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Container (height: 300, 
+     child: ListView (
+      scrollDirection: Axis.horizontal,
+      children: <Widget> [
+        
+        card ('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSLUFqGv1BtS_Lje3Ypf3Bh3G97XqY5m2hJ1w&usqp=CAU', 'Nishinoya', '20 anos', 'Pernambuco'),
+        card ('https://64.media.tumblr.com/2fd064d13c5b71b1dbc72d7780358c8a/efecaaac074e7afe-86/s400x600/7b90bdb5d7a79ae8902cd98d955c6af2ee2158bc.jpg', 'Mafuyu', '16 anos', 'MG'),
+        card ('https://pbs.twimg.com/profile_images/1535027044886642689/vmW6PPp7_400x400.jpg', 'Midoriya', '21 anos', 'São Paulo'),
+        card ('https://64.media.tumblr.com/4083157722e7e2daf87d08d4af2b146d/0c2f9457c686b357-7e/s250x400/35f012e4829d9e0d067a992b000a740c5b9d8afb.pnj', 'Bakugou', '19 anos', 'Rio de Janeiro'),
+        card ('https://p77-sign-va.tiktokcdn.com/tos-maliva-avt-0068/cfdafb039a752462928c1386c90db850~c5_720x720.jpeg?x-expires=1663358400&x-signature=lByLqpL8jiihRyP%2BG475wG4y1Po%3D', 'Killua', '23 anos', 'SC'),
+        card ('https://64.media.tumblr.com/83518aa4961dd46fedc4b9bbe44233d1/12e513f3b2e2d926-3f/s400x600/68a96e73c619cba2bd3198c658cc8da0ddc0abc8.jpg', 'Vanitas', '21 anos', 'São Paulo'),
+        card ('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSizSrApG99iXDOE0_knyouDLup36VGSU2iRw&usqp=CAU', 'Deidara', '19 anos', 'Rio de Janeiro'),
+        card ('https://64.media.tumblr.com/e046ed0fd1f66f4e84cc811b2ded9ea9/tumblr_pu8dxli31Y1sx8ybdo5_400.png', 'Inosuke', '23 anos', 'SC'),
+        card ('https://pbs.twimg.com/media/EIEWofXXUAMSvY7.png', 'Yato', '21 anos', 'São Paulo'),
+        card ('https://64.media.tumblr.com/add609c63657e848b038031c6c95003e/9fb3e801f69478a3-46/s500x750/64f8c89bdb82d13164589454cc9947f61c4fa818.png', 'L Lawliet', '21 anos', 'São Paulo'),
+        
+      ],
+    ));
+  }
+}
+
+//card feito com container no qual contem uma img, 3 textos alteraveis 
+card (String img, String txt1, String txt2, String txt3 ) {
+  return Container ( 
+    decoration: BoxDecoration (
+      color: Colors.white,
+      borderRadius: BorderRadius.circular(10)),
+    width: 300,
+    padding: const EdgeInsets.all(10.0),
+    margin: const EdgeInsets.all(10.0),
+    child: Row (mainAxisAlignment: MainAxisAlignment.spaceAround,children: [
+      Image.network(img, width: 120), 
+      Column (mainAxisAlignment: MainAxisAlignment.center,children: [
+        Text (txt1, 
+          style: TextStyle ( 
+            fontSize: 25,
+            color: Colors.grey)),
+        Text (txt2,
+            style: TextStyle ( 
+            fontSize: 25,
+            color: Colors.grey)),
+        Text (txt3,
+            style: TextStyle ( 
+            fontSize: 25,
+            color: Colors.grey)),
+      ])])
+  );
+}
